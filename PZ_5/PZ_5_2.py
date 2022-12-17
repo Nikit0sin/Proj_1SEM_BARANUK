@@ -4,19 +4,18 @@
 import random
 
 
-def PowerA234(a, b):
-    b[0] = a * a
-    b[1] = b[0] * a
-    b[2] = b[1] * a
+def PowerA234(A, B, C, D):
+    B[0] = A * A
+    C[0] = B[0] * A
+    D[0] = C[0] * A
     return
 
 
-a = random.randrange(-10, 10)
-b = [None] * 3
-PowerA234(a, b)
-print('A = ', a)
-print('B = ', b)
-a = random.uniform(-10, 10)
-PowerA234(a, b)
-print('A = ', a)
-print('B = ', b)
+A = random.randrange(-10, 10)
+B, C, D = [0], [0], [0]
+
+PowerA234(A, B, C, D)
+print('A = ', A)
+print('B = ', B[0])
+print('C = ', C[0])
+print('D = ', D[0])

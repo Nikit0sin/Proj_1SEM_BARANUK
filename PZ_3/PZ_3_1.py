@@ -6,5 +6,4 @@ while type(A) != int:
     except ValueError:
         print('Число введено неправильно')
         A = input("Введите число (A): ")
-print("Число положительно: ",A > 0)
-
+print("Число положительно: ", A > 0)
