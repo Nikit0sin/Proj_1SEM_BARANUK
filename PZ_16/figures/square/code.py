@@ -1,3 +1,6 @@
+__all__ = ['square_perimeter', 'square_area']
+
+
 def square_perimeter():
     per = 4*a
     return per

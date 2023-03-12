@@ -1,18 +1,18 @@
-import math
+__all__ = ['triangle_perimeter', 'triangle_area']
+
+from math import sin
 
 
-def triange_perimeter():
+def triangle_perimeter():
     per = a + b + c
     return per
 
 
 def triangle_area():
-    p = (a + b + c)/2
-    ar = math.sqrt(p + (p - a) + (p - b) + (p - c))
+    ar = a*b*sin(c)*0.5
     return ar
 
 
 a = 7
 b = 2
 c = 8
-print(triangle_area())

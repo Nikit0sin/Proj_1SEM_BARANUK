@@ -1,3 +1,5 @@
+# Из текстового файла (writer.txt) выбрать фамилии писателей, посчитать количество фамилий.
+# Создать новый файл, в котором выполнить замену слова «роман» на слово «произведение».
 import re
 
 openf = open('writer.txt', encoding='UTF-8')
@@ -17,4 +19,3 @@ print("Количество фамилий через дефис:", len(surname_
 final = open('final.txt', 'w')
 final.writelines(read_roman)
 final.close()
-
