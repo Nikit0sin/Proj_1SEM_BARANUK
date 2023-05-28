@@ -13,9 +13,7 @@ side_freq, down_freq = 0.15, 0.1  # передвижение в сторону �
 side_margin = int((window_w - cup_w * block) / 2)
 top_margin = window_h - (cup_h * block) - 5
 
-colors = ((0, 0, 225), (0, 225, 0), (225, 0, 0), (225, 225, 0))  # синий, зеленый, красный, желтый
-lightcolors = ((30, 30, 255), (50, 255, 50), (255, 30, 30),
-               (255, 255, 30))  # светло-синий, светло-зеленый, светло-красный, светло-желтый
+colors = ((0, 255, 255), (0, 255, 0), (255, 0, 0), (255, 255, 0)) # цвета
 
 white, gray, black = (255, 255, 255), (185, 185, 185), (0, 0, 0)
 brd_color, bg_color, txt_color, title_color, info_color = white, black, white, colors[3], colors[0]
@@ -133,12 +131,12 @@ def main():
     display_surf = pg.display.set_mode((window_w, window_h))
     basic_font = pg.font.SysFont('arial', 20)
     big_font = pg.font.SysFont('verdana', 45)
-    pg.display.set_caption('Тетрис Lite')
-    showText('Тетрис Lite')
+    pg.display.set_caption('Тетрис прототип')
+    showText('Тетрис прототип')
     while True:  # начинаем игру
         runTetris()
         pauseScreen()
-        showText('Игра закончена')
+        showText('Потрачено')
 
 
 def runTetris():
@@ -380,8 +378,6 @@ def drawBlock(block_x, block_y, color, pixelx=None, pixely=None):
     if pixelx == None and pixely == None:
         pixelx, pixely = convertCoords(block_x, block_y)
     pg.draw.rect(display_surf, colors[color], (pixelx + 1, pixely + 1, block - 1, block - 1), 0, 3)
-    pg.draw.rect(display_surf, lightcolors[color], (pixelx + 1, pixely + 1, block - 4, block - 4), 0, 3)
-    pg.draw.circle(display_surf, colors[color], (pixelx + block / 2, pixely + block / 2), 5)
 
 
 def gamecup(cup):
@@ -397,19 +393,19 @@ def gamecup(cup):
 
 
 def drawTitle():
-    titleSurf = big_font.render('Тетрис Lite', True, title_color)
+    titleSurf = big_font.render('Тетрис прототип', True, title_color)
     titleRect = titleSurf.get_rect()
-    titleRect.topleft = (window_w - 425, 30)
+    titleRect.topleft = (window_w - 475, 30)
     display_surf.blit(titleSurf, titleRect)
 
 
 def drawInfo(points, level):
-    pointsSurf = basic_font.render(f'Баллы: {points}', True, txt_color)
+    pointsSurf = basic_font.render(f'Линий стёрто: {points}', True, txt_color)
     pointsRect = pointsSurf.get_rect()
     pointsRect.topleft = (window_w - 550, 180)
     display_surf.blit(pointsSurf, pointsRect)
 
-    levelSurf = basic_font.render(f'Уровень: {level}', True, txt_color)
+    levelSurf = basic_font.render(f'Сложность: {level}', True, txt_color)
     levelRect = levelSurf.get_rect()
     levelRect.topleft = (window_w - 550, 250)
     display_surf.blit(levelSurf, levelRect)
@@ -438,7 +434,7 @@ def drawFig(fig, pixelx=None, pixely=None):
 
 
 def drawnextFig(fig):  # превью следующей фигуры
-    nextSurf = basic_font.render('Следующая:', True, txt_color)
+    nextSurf = basic_font.render('Следующая балка:', True, txt_color)
     nextRect = nextSurf.get_rect()
     nextRect.topleft = (window_w - 150, 180)
     display_surf.blit(nextSurf, nextRect)
